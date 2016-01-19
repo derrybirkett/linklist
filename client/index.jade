@@ -1,0 +1,54 @@
+head
+  title MUXFEED
+
+body
+  .container
+    .row
+      .col-xs-12
+        header.m-y-lg
+          h6 MACHINAS UX FEED
+
+    .row
+      .col-xs-12
+        +feed
+
+    // Footer
+    .row
+      .col-xs-12
+        footer
+
+template(name="feed")
+  .feed
+    .row 
+      .col-xs-12
+        p
+          a.btn.btn-secondary(data-toggle='collapse', href='#AddLink', aria-expanded='false', aria-controls='collapseExample')
+            | Add Link 
+            
+        div#AddLink.collapse
+          +addLink
+      
+    .row
+      .col-xs-12
+        ul.list.list-unstyled
+          each tasks
+            li.list-item
+                h5 
+                  a(href="") #{text}
+
+    
+template(name="addLink")
+  .addLink
+    form
+      .row
+        .col-xs-12.col-md-5
+          fieldset.form-group
+            label.sr-only(for='formGroupExampleInput') Title
+            input#formGroupExampleInput.form-control(type='text', placeholder='Title')
+        .col-xs-12.col-md-5
+          fieldset.form-group
+            label.sr-only(for='formGroupExampleInput2') URL
+            input#formGroupExampleInput2.form-control(type='text', placeholder='URL')
+        .col-xs-12.col-md-2
+          fieldset.form-group
+            submit.btn.btn-primary.form-control() Submit Link
