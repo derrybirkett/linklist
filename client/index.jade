@@ -31,24 +31,26 @@ template(name="feed")
     .row
       .col-xs-12
         ul.list.list-unstyled
-          each tasks
+          each links
             li.list-item
                 h5 
-                  a(href="") #{text}
-
+                  a(href="") #{title} 
+                  span.small (#{url})
+                  span.small (#{date_created})
+                
     
 template(name="addLink")
-  .addLink
-    form
+  .add-link
+    form#newLink
       .row
         .col-xs-12.col-md-5
           fieldset.form-group
             label.sr-only(for='formGroupExampleInput') Title
-            input#formGroupExampleInput.form-control(type='text', placeholder='Title')
+            input#formGroupExampleInput.form-control(type='text', name="LinkTitle", placeholder='Title')
         .col-xs-12.col-md-5
           fieldset.form-group
             label.sr-only(for='formGroupExampleInput2') URL
-            input#formGroupExampleInput2.form-control(type='text', placeholder='URL')
+            input#formGroupExampleInput2.form-control(type='text', name="LinkURL", placeholder='URL')
         .col-xs-12.col-md-2
           fieldset.form-group
-            submit.btn.btn-primary.form-control() Submit Link
+            input.btn.btn-primary.form-control(type="submit", value="Submit Link") 
